@@ -1,0 +1,19 @@
+{
+  "name": "inst377-finalproject",
+  "version": "1.0.0",
+  "description": "Final Project - CryptoTracker",
+  "main": "finalproject.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickd10/INST377-FinalProject.git"
+  },
+  "author": "Nick Dossin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickd10/INST377-FinalProject/issues"
+  },
+  "homepage": "https://github.com/nickd10/INST377-FinalProject#readme"
+}
