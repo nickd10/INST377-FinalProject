@@ -17,6 +17,14 @@ app.get('/', (req, res) => {
     res.sendFile('public/home.html', { root: __dirname });
 });
 
+app.get('/about', (req, res) => {
+    res.sendFile('public/about.html', { root: __dirname });
+});
+
+app.get('/function', (req, res) => {
+    res.sendFile('public/function.html', { root: __dirname });
+});
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
