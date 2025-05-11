@@ -6,20 +6,31 @@
       console.log(data);
   
       list.innerHTML = '';
-  
-    data.forEach(c => {
+    let i = 0;
+    data.slice(0,20).forEach(c => {
         const li = document.createElement('li');
         li.className = 'carouselTicker__list';
+        // li.innerHTML = `
+        //   <div class="crypto">
+        //     <h3>${c.name} (${c.symbol})</h3>
+        //     <p>Price: $${(+c.priceUsd).toFixed(2)}</p>
+        //     <p>Change (24h): ${(+c.changePercent24Hr).toFixed(2)}%</p>
+        //   </div>
+        // `;
+
         li.innerHTML = `
-          <div class="crypto">
-            <h3>${c.name} (${c.symbol})</h3>
-            <p>Price: $${(+c.priceUsd).toFixed(2)}</p>
-            <p>Change (24h): ${(+c.changePercent24Hr).toFixed(2)}%</p>
-          </div>
-        `;
+          ${i}        `
+        i++;
         list.appendChild(li);
           });
   
+      
+      $('#crypto-ticker').carouselTicker({
+        speed: 0.05,
+        direction: 'down',
+        duplicated: true,
+        pauseOnHover: true
+      });
     }
   
 async function newsData() {
@@ -40,7 +51,7 @@ async function displayNews() {
     const response = await fetch(apiUrl);
     const data = await response.json();
     
-
+    
     data.articles.slice(0, 5).forEach((article) => {
             const articleElement = document.createElement('div');
             articleElement.classList.add('article');

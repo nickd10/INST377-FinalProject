@@ -13,7 +13,10 @@ body {
      /* Full viewport height */
 }
 
-
+.carouselTicker {
+    color: black;
+    z-index: 100;
+}
 
 /* Styling for top-cryptos bar */
 #top-cryptos {

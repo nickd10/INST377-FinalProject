@@ -3,7 +3,10 @@
 
   <title>Crypto Tracker</title>
   <link rel="stylesheet" href="finalprojectstylesheet.css">
-  <script src="finalproject.js" defer></script>
+  <link rel="stylesheet" href="https://yuriyberezovskiy.github.io/carouselTicker/assets/css/carouselTicker.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/carouselTicker.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.carouselTicker.js"></script>
 </head>
 <body>
   
@@ -21,13 +24,12 @@
       <h2>Market Overview</h2>
       <p>Track the latest trends in cryptocurrency markets.</p>
     </div>
-    <div class="carouselTicker"></div>
-        <div id="top-cryptos">
-        <ul id="crypto-ticker">
+    <div class="carouselTicker">
+        <ul id="crypto-ticker" class="carouselTicker__list">
             
         </ul>
     </div>
-    </div>
+  </div>
     <div class="news-sidebar">
       <div id="news-container">
         <h2>Latest Cryptocurrency News</h2>
@@ -49,9 +51,14 @@
     </div>
     </div>
   
-
+    
   
       
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- carouselTicker JS -->
+  <script src="https://yuriyberezovskiy.github.io/carouselTicker/assets/js/jquery.carouselTicker.min.js"></script>
   
+  <script src="finalproject.js"></script>
 </body>
 </html>
