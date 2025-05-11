@@ -20,13 +20,6 @@
         list.appendChild(li);
           });
   
-      
-      $('#crypto-ticker').carouselTicker({
-        speed: 0.05,
-        direction: 'down',
-        duplicated: true,
-        pauseOnHover: true
-      });
     }
   
 async function newsData() {
@@ -47,7 +40,7 @@ async function displayNews() {
     const response = await fetch(apiUrl);
     const data = await response.json();
     
-    
+
     data.articles.slice(0, 5).forEach((article) => {
             const articleElement = document.createElement('div');
             articleElement.classList.add('article');
