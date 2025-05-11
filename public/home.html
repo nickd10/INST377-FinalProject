@@ -1,56 +1,65 @@
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto Tracker</title>
-    <link rel="stylesheet" href="finalprojectstylesheet.css">
-    <!-- carouselTicker CSS -->
-    <link rel="stylesheet" href="https://yuriyberezovskiy.github.io/carouselTicker/assets/css/carouselTicker.css">
+
+  <title>Crypto Tracker</title>
+  <link rel="stylesheet" href="finalprojectstylesheet.css">
+  <link rel="stylesheet" href="https://yuriyberezovskiy.github.io/carouselTicker/assets/css/carouselTicker.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/carouselTicker.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.carouselTicker.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Crypto Tracker</h1>
-        <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="function.html">Functionality Page</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="overview">
-            <h2>Market Overview</h2>
-            <p>Track the latest trends in cryptocurrency markets.</p>
-        </section>
-        <section id="top-cryptos">
-            <ul id="crypto-ticker">
-                <!-- Dynamically loaded crypto items will go here -->
-            </ul>
-        </section>
-        <div class="news-sidebar">
-            <section id="news-container">
-                <h2>Latest Cryptocurrency News</h2>
-                <ul>
-                    <!-- Dynamically loaded news articles -->
-                </ul>
-            </section>
-        </div>
-        <div id="favorites-sidebar">
-            <section id="favorites-container">
-                <h2>Your Favorite Cryptocurrencies</h2>
-                <ul>
-                    <!-- Placeholder for user's favorite cryptocurrencies -->
-                </ul>
-            </section>
-        </div>
-    </main>
+  
+    <h1>Crypto Tracker</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="function.html">Functionality Page</a></li>
+      </ul>
+    </nav>
+  
+  
+    <div id="overview">
+      <h2>Market Overview</h2>
+      <p>Track the latest trends in cryptocurrency markets.</p>
+    </div>
+    <div class="carouselTicker"></div>
+        <div id="top-cryptos">
+        <ul id="crypto-ticker">
+            
+        </ul>
+    </div>
+    </div>
+    <div class="news-sidebar">
+      <div id="news-container">
+        <h2>Latest Cryptocurrency News</h2>
+        <ul>
+          
+        </ul>
+    </div>
+    </div>
+    <div id="favorites-sidebar">
+      <div id="favorites-container">
+        <h2>Your Favorite Cryptocurrencies</h2>
+        <form>
+            <input type="text" id="crypto-input" placeholder="Enter cryptocurrency name or symbol">
+            <button type="button" id="add-favorite">Add to Favorites</button>
+        </form>
+        <ul>
+            Favorite Cryptos
+        </ul>
+    </div>
+    </div>
+  
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- carouselTicker JS -->
-    <script src="https://yuriyberezovskiy.github.io/carouselTicker/assets/js/jquery.carouselTicker.min.js"></script>
-    <!-- Your custom script -->
-    <script src="finalproject.js"></script>
+  
+      
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- carouselTicker JS -->
+  <script src="https://yuriyberezovskiy.github.io/carouselTicker/assets/js/jquery.carouselTicker.min.js"></script>
+  
+  <script src="finalproject.js"></script>
 </body>
 </html>
