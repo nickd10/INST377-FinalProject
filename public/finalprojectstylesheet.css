@@ -1,13 +1,53 @@
-/* Center align elements on the home page */
+/* General styling for the body */
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     margin: 0;
     padding: 0;
-    text-align: center;
+    font-family: Arial, sans-serif; /* Clean and readable font */
+    line-height: 1.6;
+    background-color: #f9f9f9; /* Light background for better readability */
+    color: #333; /* Dark text for contrast */
+    display: flex;
+    justify-content: center; /* Center elements horizontally */
+    align-items: center; /* Center elements vertically */
+    flex-direction: column; /* Stack elements vertically */
+     /* Full viewport height */
 }
+
+/* Styling for top-cryptos bar */
+#top-cryptos {
+    width: 300px; /* Adjust width as needed */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #f4f4f4; /* Light gray background */
+    overflow-y: auto; /* Scrollable if content overflows */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    z-index: 10; /* Ensure it appears above other elements */
+}
+
+#top-cryptos h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+#top-cryptos .crypto {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd; /* Separator between items */
+}
+
+#top-cryptos .crypto h3 {
+    font-size: 1.2em;
+    margin: 0 0 10px;
+}
+
+#top-cryptos .crypto p {
+    font-size: 0.9em;
+    color: #555; /* Slightly muted text color */
+}
+
 
 /* Sidebar styling for new articles */
 .news-sidebar {
