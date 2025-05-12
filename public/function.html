@@ -1,34 +1,55 @@
 <html>
-    <head>
-        <title>Function Page</title>
-        <link rel="stylesheet" href="finalprojectstylesheet.css">
-        <script src="functionality.js" defer></script>
+<head>
 
-        
-    </head>
-
-    <body>
-        <h1>Functionality Page</h1>
-        <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="function.html">Functionality Page</a></li>
-            </ul>
-        </nav>
-        
-            <h1>Favorite Cryptocurrencies</h1>
-        
-        
-        <main>
-            <div id="favorites">
-                <h2>Your Saved Cryptocurrencies</h2>
-                <ul id="crypto-list">
-                    
-                </ul>
-            </div>
-        </main>
-
-        
-    </body>
+  <title>Crypto Tracker</title>
+  <link rel="stylesheet" href="finalprojectstylesheet.css">
+    <script src="finalproject.js" defer></script>
+</head>
+<body>
+  
+    <h1>Crypto Tracker</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="function.html">Functionality Page</a></li>
+      </ul>
+    </nav>
+  
+  
+    <div id="overview">
+      <h2>Market Overview</h2>
+      <p>Track the latest trends in cryptocurrency markets.</p>
+    </div>
+    <div class="carouselTicker">
+        <ul id="crypto-ticker" class="carouselTicker__list">
+            
+        </ul>
+    </div>
+  </div>
+    <div class="news-sidebar">
+      <div id="news-container">
+        <h2>Latest Cryptocurrency News</h2>
+        <ul>
+          
+        </ul>
+    </div>
+    </div>
+    <div id="favorites-sidebar">
+      <div id="favorites-container">
+        <h2>Your Favorite Cryptocurrencies</h2>
+        <form>
+            <input type="text" id="crypto-input" placeholder="Enter cryptocurrency name or symbol">
+            <button type="button" id="add-favorite">Add to Favorites</button>
+        </form>
+        <ul>
+            Favorite Cryptos
+        </ul>
+    </div>
+    </div>
+  
+    
+  
+      
+</body>
 </html>

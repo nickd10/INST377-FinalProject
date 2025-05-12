@@ -9,31 +9,16 @@
     let i = 0;
     data.slice(0,20).forEach(c => {
         const li = document.createElement('li');
-        li.className = 'carouselTicker__list';
-        // li.innerHTML = `
-        //   <div class="crypto">
-        //     <h3>${c.name} (${c.symbol})</h3>
-        //     <p>Price: $${(+c.priceUsd).toFixed(2)}</p>
-        //     <p>Change (24h): ${(+c.changePercent24Hr).toFixed(2)}%</p>
-        //   </div>
-        // `;
-
+        li.className = 'crypto';
         li.innerHTML = `
-          ${i}        `
-        i++;
-        list.appendChild(li);
-          });
-  
-    //   $(document).ready(function() {
-    //         $('.carouselTicker').carouselTicker();
-    //     });
+          <div class="crypto">
+            <h3>${c.name} (${c.symbol})</h3>
+            <p>Price: $${(+c.priceUsd).toFixed(2)}</p>
+            <p>Change (24h): ${(+c.changePercent24Hr).toFixed(2)}%</p>
+          </div>
+        `;
 
-    //   $('.carouselTicker').carouselTicker({
-    //     speed: 0.05,
-    //     direction: 'down',
-    //     duplicated: true,
-    //     pauseOnHover: true
-    //   });
+          });
     }
   
 async function newsData() {
