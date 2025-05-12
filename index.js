@@ -25,6 +25,27 @@ app.get('/function', (req, res) => {
     res.sendFile('public/function.html', { root: __dirname });
 });
 
+//Create a new account: include username, password, initial currencies
+app.post('/create-account', async (req, res) => {
+    console.log("Adding new account...");
+
+    console.log(req.body);
+    const user_name = req.body.username;
+    const initial_Currencies = req.body.initialCurrencies;
+
+    const { data, error } = await supabase
+  .from('users')
+  .insert({ username: user_name,
+            password: pass_word,
+            initial_currencies: initial_Currencies
+            })
+
+});
+
+//Log into the account
+
+//update the account with crypto data
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });

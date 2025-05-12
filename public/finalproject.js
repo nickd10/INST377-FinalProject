@@ -1,9 +1,12 @@
- async function fetchCryptoData() {
-      const apiUrl = 'https://rest.coincap.io/v3/assets?apiKey=bb43ba35d08f73b83e2fad9dd11097ebc46fa5a9a270d641d89ee7eeb6e67769';
-      const response = await fetch(apiUrl);
-      const { data } = await response.json();
-      const list = document.getElementById('crypto-ticker');
-      console.log(data);
+
+
+async function fetchCryptoData() {
+    const apiUrl = 'https://rest.coincap.io/v3/assets?apiKey=bb43ba35d08f73b83e2fad9dd11097ebc46fa5a9a270d641d89ee7eeb6e67769';
+    const response = await fetch(apiUrl);
+    const { data } = await response.json();
+  
+    const list = document.getElementById('crypto-ticker');
+    list.innerHTML = '';
   
       list.innerHTML = '';
     let i = 0;
@@ -11,14 +14,23 @@
         const li = document.createElement('li');
         li.className = 'crypto';
         li.innerHTML = `
-          <div class="crypto">
             <h3>${c.name} (${c.symbol})</h3>
             <p>Price: $${(+c.priceUsd).toFixed(2)}</p>
             <p>Change (24h): ${(+c.changePercent24Hr).toFixed(2)}%</p>
-          </div>
         `;
-
+        list.appendChild(li);
           });
+  
+    //   $(document).ready(function() {
+    //         $('.carouselTicker').carouselTicker();
+    //     });
+
+    //   $('.carouselTicker').carouselTicker({
+    //     speed: 0.05,
+    //     direction: 'down',
+    //     duplicated: true,
+    //     pauseOnHover: true
+    //   });
     }
   
 async function newsData() {
@@ -40,7 +52,7 @@ async function displayNews() {
     const data = await response.json();
     
     
-    data.articles.slice(0, 20).forEach((article) => {
+    data.articles.slice(0, 5).forEach((article) => {
             const articleElement = document.createElement('div');
             articleElement.classList.add('article');
             articleElement.innerHTML = `
