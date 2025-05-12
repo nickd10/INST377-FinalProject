@@ -25,6 +25,21 @@ app.get('/function', (req, res) => {
     res.sendFile('public/function.html', { root: __dirname });
 });
 
+app.get('/users', async (req, res) => {
+    console.log("Fetching users...");
+
+    const { data, error } = await supabase
+        .from('user_crypto_favorites')
+        .select('*');
+
+    if (error) {
+        console.error(error);
+        res.status(500).send('Error fetching users');
+    } else {
+        res.json(data);
+    }
+});
+
 //Create a new account: include username, password, initial currencies
 app.post('/create-account', async (req, res) => {
     console.log("Adding new account...");
@@ -36,7 +51,6 @@ app.post('/create-account', async (req, res) => {
     const { data, error } = await supabase
   .from('users')
   .insert({ username: user_name,
-            password: pass_word,
             initial_currencies: initial_Currencies
             })
 

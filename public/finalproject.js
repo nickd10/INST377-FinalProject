@@ -4,6 +4,7 @@ async function fetchCryptoData() {
     const apiUrl = 'https://rest.coincap.io/v3/assets?apiKey=bb43ba35d08f73b83e2fad9dd11097ebc46fa5a9a270d641d89ee7eeb6e67769';
     const response = await fetch(apiUrl);
     const { data } = await response.json();
+    console.log(data);
   
     const list = document.getElementById('crypto-ticker');
     list.innerHTML = '';
@@ -51,6 +52,8 @@ async function displayNews() {
             newsContainer.appendChild(articleElement);
     });
 }
+
+//Fetch from backend, look at the characters from the database.
   
 
 window.onload = () => {
