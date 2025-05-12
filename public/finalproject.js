@@ -1,3 +1,5 @@
+
+
 async function fetchCryptoData() {
     const apiUrl = 'https://rest.coincap.io/v3/assets?apiKey=bb43ba35d08f73b83e2fad9dd11097ebc46fa5a9a270d641d89ee7eeb6e67769';
     const response = await fetch(apiUrl);

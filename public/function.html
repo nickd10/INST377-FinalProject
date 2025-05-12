@@ -18,16 +18,22 @@
         </nav>
         
             <h1>Favorite Cryptocurrencies</h1>
-        
-        
-        <main>
+
             <div id="favorites">
                 <h2>Your Saved Cryptocurrencies</h2>
-                <ul id="crypto-list">
-                    
-                </ul>
-            </div>
-        </main>
+                <!-- New form -->
+                <form id="favorite-form">
+                  <input type="text" id="username-input" placeholder="Please make sure to use the same username each time" required style="width: 345px;">
+                  <input type="text" id="crypto-input"  placeholder="Crypto symbol or id, do not enter the same ticker twice" required maxlength="5" required style="width: 345px;">
+                  <button type="submit">Add to Favorites</button>
+                </form>
+          
+                <!-- List of favorites -->
+                <ul id="crypto-list"></ul>
+          
+                <!-- Where charts go -->
+                <div id="charts-container"></div>
+              </div>
 
         
     </body>
