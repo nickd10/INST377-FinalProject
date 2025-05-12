@@ -9,18 +9,30 @@ async function fetchCryptoData() {
     const list = document.getElementById('crypto-ticker');
     list.innerHTML = '';
   
-    
-    data.forEach(c => {
-      const li = document.createElement('li');
-      li.className = 'crypto';
-      li.innerHTML = `
-        <h3>${c.name} (${c.symbol})</h3>
-        <p>Price: $${(+c.priceUsd).toFixed(2)}</p>
-        <p>Change (24h): ${(+c.changePercent24Hr).toFixed(2)}%</p>
-      `;
-      list.appendChild(li);
-    });
-  }
+      list.innerHTML = '';
+    let i = 0;
+    data.slice(0,20).forEach(c => {
+        const li = document.createElement('li');
+        li.className = 'crypto';
+        li.innerHTML = `
+            <h3>${c.name} (${c.symbol})</h3>
+            <p>Price: $${(+c.priceUsd).toFixed(2)}</p>
+            <p>Change (24h): ${(+c.changePercent24Hr).toFixed(2)}%</p>
+        `;
+        list.appendChild(li);
+          });
+  
+    //   $(document).ready(function() {
+    //         $('.carouselTicker').carouselTicker();
+    //     });
+
+    //   $('.carouselTicker').carouselTicker({
+    //     speed: 0.05,
+    //     direction: 'down',
+    //     duplicated: true,
+    //     pauseOnHover: true
+    //   });
+    }
   
 async function newsData() {
     const apiUrl = 'https://newsdata.io/api/1/news'
