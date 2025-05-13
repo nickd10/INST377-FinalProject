@@ -42,7 +42,7 @@ app.get('/users', async (req, res) => {
 
 
 app.post('/user', async (req, res) => {
-    console.log("Adding user...");
+    console.log("Adding Data...");
 
     console.log(req.body);
     const userName = req.body.username;
@@ -50,7 +50,7 @@ app.post('/user', async (req, res) => {
 
     const { error } = await supabase
     .from('user_crypto_favorites')
-    .insert({ username: userName, cryptos: cryptoName });
+    .insert({ username: userName, crypto: cryptoName });
 
     if(error) {
         console.error(error);
@@ -60,6 +60,7 @@ app.post('/user', async (req, res) => {
 
     res.send();
 });
+
 
 //Log into the account
 

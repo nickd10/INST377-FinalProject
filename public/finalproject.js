@@ -1,29 +1,26 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('cryptoForm');
-    const message = document.getElementById('formMessage');
-  
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-  
-      const username = document.getElementById('username').value.trim();
-      const crypto = document.getElementById('crypto').value.trim();
-  
-      const response = await fetch('/add-favorite', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, crypto })
-      });
-  
-      const result = await response.json();
-      if (response.ok) {
-        message.textContent = 'Favorite added successfully!';
-        form.reset();
-      } else {
-        message.textContent = `Error: ${result.error}`;
-      }
+async function loadUserData() {
+    const response = await fetch('/users')
+    .then((result) => result.json())
+    .then(resultJson => {
+        const table = document.createElement('table');
+        table.setAttribute('id', 'user-table');
+
+        const tableRow = document.createElement('tr');
+
+        const tableHeadingUserName = document.createElement('th');
+        tableHeadingUserName.innerText = 'Username';
+        tableRow.appendChild(tableHeadingUserName);
+
+        const tableHeadingCrypto = document.createElement('th');
+        tableHeadingCrypto.innerText = 'Crypto';
+        tableRow.appendChild(tableHeadingCrypto);
+        
+        table.appendChild(tableRow);
+
+        document.body.appendChild(table);
     });
-  });
-  
+
+}
   
   
   
@@ -91,60 +88,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
-  document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("favorites-form");
-    const chartsContainer = document.getElementById("charts-container");
+
   
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const username = document.getElementById("username").value.trim();
-      const crypto = document.getElementById("crypto").value.trim().toLowerCase();
-  
-      // Add to Supabase
-      await fetch("/add-favorite", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, crypto })
-      });
-  
-      // Fetch price history and draw chart
-      displayCryptoChart(crypto);
-    });
-  
-    async function displayCryptoChart(symbol) {
-      const url = `https://api.coincap.io/v2/assets/${symbol}/history?interval=d1`;
-      const response = await fetch(url);
-      const { data } = await response.json();
-  
-      const labels = data.map(entry => new Date(entry.date).toLocaleDateString());
-      const prices = data.map(entry => parseFloat(entry.priceUsd));
-  
-      const canvas = document.createElement("canvas");
-      chartsContainer.appendChild(canvas);
-  
-      new Chart(canvas.getContext("2d"), {
-        type: "line",
-        data: {
-          labels,
-          datasets: [{
-            label: `${symbol.toUpperCase()} Price (USD)`,
-            data: prices,
-            borderWidth: 2
-          }]
-        },
-        options: {
-          responsive: true,
-          scales: {
-            y: { beginAtZero: false }
-          }
-        }
-      });
+
+window.onload = async function () {
+    const path = window.location.pathname;
+
+    if (path.includes("home.html")) {
+        await fetchCryptoData();
+        await newsData();
+        await displayNews();
     }
-  });
-  
-  
-  window.onload = () => {
-    fetchCryptoData();
-    newsData();
-    displayNews();
-  };
+
+    if (path.includes("function.html")) {
+        await loadUserData();
+    } 
+};
