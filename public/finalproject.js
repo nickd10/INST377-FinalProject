@@ -110,7 +110,7 @@ async function loadUserData() {
     const data = await response.json();
     
     
-    data.articles.slice(0, 5).forEach((article) => {
+    data.articles.forEach((article) => {
             const articleElement = document.createElement('div');
             articleElement.classList.add('article');
             articleElement.innerHTML = `
