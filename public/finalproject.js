@@ -91,16 +91,6 @@ async function loadUserData() {
       freeModeMomentum: false
     });
   }
-  async function newsData() {
-    const apiUrl = 'https://newsdata.io/api/1/news'
-                 + '?apikey=pub_86155875b19a71ad6c93c5b5c5f50a53a22de'
-                 + '&language=en';
-  
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    
-    console.log(data.results);
-  }
   
   async function displayNews() {
     const newsContainer = document.getElementById('news-container');
@@ -109,6 +99,7 @@ async function loadUserData() {
     const response = await fetch(apiUrl);
     const data = await response.json();
     
+    console.log(data.articles);
     
     data.articles.forEach((article) => {
             const articleElement = document.createElement('div');
@@ -130,7 +121,6 @@ window.onload = async function () {
 
     if (path.includes("home.html")) {
         await fetchCryptoData();
-        await newsData();
         await displayNews();
     }
 
