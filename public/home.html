@@ -1,9 +1,13 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Crypto Tracker</title>
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
   <link rel="stylesheet" href="finalprojectstylesheet.css">
 </head>
 <body>
@@ -24,8 +28,15 @@
   
   <div id="top-cryptos">
     <h2>Top Cryptocurrencies</h2>
-    <ul id="crypto-ticker"></ul>
+    <div class="swiper sidebar-swiper">
+      <div class="swiper-wrapper" id="crypto-ticker">
+        <!-- Swiper slides (injected via JS) go here -->
+      </div>
+  
+      
+    </div>
   </div>
+  
 
   <!-- News and favorites can stay as you have them -->
   <div class="news-sidebar">

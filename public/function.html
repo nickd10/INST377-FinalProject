@@ -22,7 +22,7 @@
             <div id="favorites">
                 <h2>Your Saved Cryptocurrencies</h2>
                 <!-- New form -->
-                <form id="favorite-form">
+                <form id="favorite-form" onsubmit="addToFavorites()">
                   <input type="text" id="username-input" placeholder="Please make sure to use the same username each time" required style="width: 345px;">
                   <input type="text" id="crypto-input"  placeholder="Crypto symbol or id, do not enter the same ticker twice" required maxlength="5" required style="width: 345px;">
                   <button type="submit">Add to Favorites</button>

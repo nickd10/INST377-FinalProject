@@ -18,6 +18,18 @@ body {
     z-index: 100;
 }
 
+.sidebar-swiper {
+    height: 80vh;
+  }
+  
+  .sidebar-swiper .swiper-slide {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 6px;
+  }
+  
+
 /* Styling for top-cryptos bar */
 #top-cryptos {
     width: 300px; /* Adjust width as needed */

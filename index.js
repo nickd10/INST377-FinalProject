@@ -40,20 +40,25 @@ app.get('/users', async (req, res) => {
     }
 });
 
-//Create a new account: include username, password, initial currencies
-app.post('/create-account', async (req, res) => {
-    console.log("Adding new account...");
+
+app.post('/user', async (req, res) => {
+    console.log("Adding user...");
 
     console.log(req.body);
-    const user_name = req.body.username;
-    const initial_Currencies = req.body.initialCurrencies;
+    const userName = req.body.username;
+    const cryptoName = req.body.crypto;
 
-    const { data, error } = await supabase
-  .from('users')
-  .insert({ username: user_name,
-            initial_currencies: initial_Currencies
-            })
+    const { error } = await supabase
+    .from('user_crypto_favorites')
+    .insert({ username: userName, cryptos: cryptoName });
 
+    if(error) {
+        console.error(error);
+        res.status(500).send('Error adding user');
+        res.send({ error: 'Error adding user' });
+    }
+
+    res.send();
 });
 
 //Log into the account
