@@ -31,7 +31,7 @@ async function loadUserData() {
             tableRow.appendChild(tableHeadingUserName);
 
             const tableHeadingCrypto = document.createElement('th');
-            tableHeadingCrypto.innerText = 'Crypto';
+            tableHeadingCrypto.innerText = 'Crypto Search History';
             tableRow.appendChild(tableHeadingCrypto);
             
             table.appendChild(tableRow);
