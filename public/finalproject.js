@@ -1,24 +1,58 @@
+async function createUser() {
+    await fetch(`/user`, {
+        method: 'POST',
+        body: JSON.stringify({
+            username: `${document.getElementById('username-input').value}`,
+            crypto: `${document.getElementById('crypto-input').value}`,
+        }),
+        headers: {
+            'content-type': 'application/json',
+        },
+    }).then((result) => result.json());
+
+    await loadUserData();
+}
+
+
 async function loadUserData() {
-    const response = await fetch('/users')
-    .then((result) => result.json())
-    .then(resultJson => {
-        const table = document.createElement('table');
-        table.setAttribute('id', 'user-table');
-
-        const tableRow = document.createElement('tr');
-
-        const tableHeadingUserName = document.createElement('th');
-        tableHeadingUserName.innerText = 'Username';
-        tableRow.appendChild(tableHeadingUserName);
-
-        const tableHeadingCrypto = document.createElement('th');
-        tableHeadingCrypto.innerText = 'Crypto';
-        tableRow.appendChild(tableHeadingCrypto);
+    console.log("Loading user data...");
+    fetch('/users')
+        .then((result) => result.json())
         
-        table.appendChild(tableRow);
+        .then(resultJson => {
+            console.log(resultJson);
+            const table = document.createElement('table');
+            table.setAttribute('id', 'user-table');
 
-        document.body.appendChild(table);
-    });
+            const tableRow = document.createElement('tr');
+
+            const tableHeadingUserName = document.createElement('th');
+            tableHeadingUserName.innerText = 'Username';
+            tableRow.appendChild(tableHeadingUserName);
+
+            const tableHeadingCrypto = document.createElement('th');
+            tableHeadingCrypto.innerText = 'Crypto';
+            tableRow.appendChild(tableHeadingCrypto);
+            
+            table.appendChild(tableRow);
+
+            document.body.appendChild(table);
+
+            resultJson.forEach((user) => {
+                const tableRow = document.createElement('tr');
+                const tableDataUserName = document.createElement('td');
+                tableDataUserName.innerText = user.username;
+                tableRow.appendChild(tableDataUserName);
+
+                const tableDataCrypto = document.createElement('td');
+                tableDataCrypto.innerText = user.crypto;
+                tableRow.appendChild(tableDataCrypto);
+
+                table.appendChild(tableRow);
+            });
+        });
+
+
 
 }
   

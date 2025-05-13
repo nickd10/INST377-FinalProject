@@ -50,15 +50,17 @@ app.post('/user', async (req, res) => {
 
     const { error } = await supabase
     .from('user_crypto_favorites')
-    .insert({ username: userName, crypto: cryptoName });
+    .insert({ username: userName, crypto: cryptoName })
+    .select()
 
     if(error) {
         console.error(error);
-        res.status(500).send('Error adding user');
-        res.send({ error: 'Error adding user' });
+        
+        return res.status(500).send('Error adding user');
     }
 
-    res.send();
+    
+    return res.status(200).json({username: userName, crypto: cryptoName});
 });
 
 
