@@ -13,7 +13,7 @@ const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
 
-app.get('/home.html', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile('public/home.html', { root: __dirname });
 });
 
