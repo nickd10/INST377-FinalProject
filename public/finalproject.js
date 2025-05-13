@@ -94,22 +94,25 @@ async function loadUserData() {
   
   async function displayNews() {
     const newsContainer = document.getElementById('news-container');
-    const apiUrl = 'https://newsapi.org/v2/everything?q=Cryptocurrency performance&apiKey=c48df870dd7440b1ae2b38d09bcda843';
+    const apiUrl = 'https://cryptopanic.com/api/v1/posts/?auth_token=11d472ee2b7e288b3f2de383b819c603f8e9ccff&public=true';
   
     const response = await fetch(apiUrl);
     const data = await response.json();
-    
-    console.log(data.articles);
-    
-    data.articles.forEach((article) => {
-            const articleElement = document.createElement('div');
-            articleElement.classList.add('article');
-            articleElement.innerHTML = `
-                    <h2>${article.title}</h2>
-                    <p>${article.description}</p>
-                    <a href="${article.url}" target="_blank">Read more</a>
-            `;
-            newsContainer.appendChild(articleElement);
+  
+    console.log(data.results); // now logs the array you want
+  
+    // clear out any old articles
+    newsContainer.innerHTML = '';
+  
+    data.results.forEach((post) => {
+      const articleElement = document.createElement('div');
+      articleElement.classList.add('article');
+      articleElement.innerHTML = `
+        <h2>${post.title}</h2>
+        <p>${post.excerpt || ''}</p>
+        <a href="${post.url}" target="_blank">Read more</a>
+      `;
+      newsContainer.appendChild(articleElement);
     });
   }
   
