@@ -121,7 +121,7 @@ async function loadUserData() {
 
       table.appendChild(tableRow);
 
-      document.body.appendChild(table);
+      document.getElementById('history-container').appendChild(table);
 
       // Filter users by the entered username (case-insensitive)
       const filteredUsers = resultJson.filter(user => 

@@ -1,4 +1,3 @@
-/* General styling for the body */
 body {
     margin: 0;
     padding: 0;
@@ -10,10 +9,22 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-   
 }
 
+#history-chart-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;           
+  margin-top: 20px;     
+}
 
+#history-container {
+  flex: 1;             
+}
+
+#charts-container {
+  flex: 2;              
+}
 
 .carouselTicker {
     color: black;
@@ -22,28 +33,26 @@ body {
 
 .sidebar-swiper {
     height: 80vh;
-  }
+}
   
-  .sidebar-swiper .swiper-slide {
+.sidebar-swiper .swiper-slide {
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 6px;
-  }
-  
+}
 
-/* Styling for top-cryptos bar */
 #top-cryptos {
-    width: 300px; /* Adjust width as needed */
+    width: 300px;
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    background-color: #f4f4f4; /* Light gray background */
-    overflow-y: auto; /* Scrollable if content overflows */
+    background-color: #f4f4f4;
+    overflow-y: auto;
     padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    z-index: 10; /* Ensure it appears above other elements */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
 }
 
 #top-cryptos h2 {
@@ -54,7 +63,7 @@ body {
 #top-cryptos .crypto {
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #ddd; /* Separator between items */
+    border-bottom: 1px solid #ddd;
 }
 
 #top-cryptos .crypto h3 {
@@ -64,21 +73,19 @@ body {
 
 #top-cryptos .crypto p {
     font-size: 0.9em;
-    color: #555; /* Slightly muted text color */
+    color: #555;
 }
 
-
-/* Sidebar styling for new articles */
 .news-sidebar {
-    width: 300px; /* Adjust width as needed */
+    width: 300px;
     position: fixed;
     top: 0;
     right: 0;
     height: 100%;
-    background-color: #f4f4f4; /* Light gray background */
-    overflow-y: auto; /* Scrollable if content overflows */
+    background-color: #f4f4f4;
+    overflow-y: auto;
     padding: 20px;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .news-sidebar h2 {
@@ -89,7 +96,7 @@ body {
 .news-sidebar .article {
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #ddd; /* Separator between articles */
+    border-bottom: 1px solid #ddd;
 }
 
 .news-sidebar .article h3 {
@@ -99,5 +106,5 @@ body {
 
 .news-sidebar .article p {
     font-size: 0.9em;
-    color: #555; /* Slightly muted text color */
+    color: #555;
 }
