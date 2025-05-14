@@ -21,9 +21,9 @@
             <h1>Favorite Cryptocurrencies</h1>
 
             <div id="favorites">
-                <h2>Search for your favorite Cryptocurrencies</h2>
-                <!-- New form -->
-                <form id="favorite-form" onsubmit="event.preventDefault(); fetchCryptoHistory(document.getElementById('crypto-input').value)">
+                <h2>Search for your favorite Crypto's recent performance</h2>
+
+                <form id="favorite-form" onsubmit="event.preventDefault(); fetchCryptoHistory(document.getElementById('crypto-input').value), addUserInfo()">
                     <input type="text" id="username-input" placeholder="Same username each time" required style="width: 345px;">
                     <input type="text" id="crypto-input" placeholder="Name of crypto (No Tickers)" required style="width: 345px;">
                     <button type="submit">Add to Favorites</button>
@@ -32,13 +32,15 @@
 
                 
                 <ul id="crypto-list"></ul>
+
+                
           
                 
                 <div id="charts-container">
                     <canvas id="crypto-chart"></canvas>
                 </div>
                   
-              
+              <h2>Recent Users Search History on this site</h2>
               
         
     </body>

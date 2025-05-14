@@ -45,22 +45,22 @@ app.post('/user', async (req, res) => {
     console.log("Adding Data...");
 
     console.log(req.body);
-    const userName = req.body.username;
-    const cryptoName = req.body.crypto;
+    var userName = req.body.username;
+    var cryptoName = req.body.crypto;
 
-    const { error } = await supabase
+    const { data, error } = await supabase
     .from('user_crypto_favorites')
-    .insert({ username: userName, crypto: cryptoName })
-    .select()
+    .insert({ username: userName, 
+            crypto: cryptoName })
+    .select();
 
     if(error) {
         console.error(error);
-        
         return res.status(500).send('Error adding user');
+    } else {
+        res.send(data);
     }
 
-    
-    return res.status(200).json({username: userName, crypto: cryptoName});
 });
 
 

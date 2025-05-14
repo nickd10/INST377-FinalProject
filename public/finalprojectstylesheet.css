@@ -2,16 +2,18 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif; /* Clean and readable font */
+    font-family: Arial, sans-serif; 
     line-height: 1.6;
-    background-color: #f9f9f9; /* Light background for better readability */
-    color: #333; /* Dark text for contrast */
+    background-color: #f9f9f9;
+    color: #333;
     display: flex;
-    justify-content: center; /* Center elements horizontally */
-    align-items: center; /* Center elements vertically */
-    flex-direction: column; /* Stack elements vertically */
-     /* Full viewport height */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   
 }
+
+
 
 .carouselTicker {
     color: black;

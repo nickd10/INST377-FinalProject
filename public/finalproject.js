@@ -1,4 +1,17 @@
-// Fetch daily history for the given ticker (e.g. "bitcoin", "ethereum", etc.)
+async function addUserInfo() {
+  await fetch('/user', {
+    method: 'POST',
+    body: JSON.stringify({
+      username: `${document.getElementById('username-input').value}`,
+      crypto: `${document.getElementById('crypto-input').value}`,
+    }),
+    headers: {
+      'content-type': 'application/json',
+    },
+  }).then((result) => result.json());
+    await loadUserData();
+}
+
 async function fetchCryptoHistory(cryptoName) {
 
   
@@ -86,6 +99,12 @@ async function loadUserData() {
         
         .then(resultJson => {
             console.log(resultJson);
+
+            const existingTable = document.getElementById('user-table');
+            if (existingTable) {
+                existingTable.remove();
+            }
+
             const table = document.createElement('table');
             table.setAttribute('id', 'user-table');
 
@@ -116,8 +135,6 @@ async function loadUserData() {
                 table.appendChild(tableRow);
             });
         });
-
-
 
 }
   
