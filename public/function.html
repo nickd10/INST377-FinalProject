@@ -3,6 +3,7 @@
         <title>Function Page</title>
         <link rel="stylesheet" href="finalprojectstylesheet.css">
         <script src="finalproject.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
         
     </head>
@@ -22,20 +23,21 @@
             <div id="favorites">
                 <h2>Search for your favorite Cryptocurrencies</h2>
                 <!-- New form -->
-                <form id="favorite-form" onsubmit="createUser()">
-                  <input type="text" id="username-input" placeholder="Please make sure to use the same username each time" required style="width: 345px;">
-                  <input type="text" id="crypto-input"  placeholder="Crypto symbol or id, do not enter the same ticker twice" required maxlength="5" required style="width: 345px;">
-                  <button type="submit">Add to Favorites</button>
-                </form>
+                <form id="favorite-form" onsubmit="event.preventDefault(); fetchCryptoHistory(document.getElementById('crypto-input').value)">
+                    <input type="text" id="username-input" placeholder="Same username each time" required style="width: 345px;">
+                    <input type="text" id="crypto-input" placeholder="Name of crypto (No Tickers)" required style="width: 345px;">
+                    <button type="submit">Add to Favorites</button>
+                  </form>
+                  
 
                 
-          
-                <!-- List of favorites -->
                 <ul id="crypto-list"></ul>
           
-                <!-- Where charts go -->
-                <div id="charts-container"></div>
-              </div>
+                
+                <div id="charts-container">
+                    <canvas id="crypto-chart"></canvas>
+                </div>
+                  
               
               
         

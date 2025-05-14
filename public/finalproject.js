@@ -1,3 +1,68 @@
+// Fetch daily history for the given ticker (e.g. "bitcoin", "ethereum", etc.)
+async function fetchCryptoHistory(cryptoName) {
+
+  
+  
+  const apiKey = '90c6bd0234a74016e49b2b9d2968ab089fb71c22ac5021e6081cb6d5db085883';
+  const url = `https://rest.coincap.io/v3/assets/${cryptoName}/history?interval=d1`;
+  
+
+  const response = await fetch(url, {
+    headers: {
+      'Authorization': `Bearer ${apiKey}`
+    }
+  });
+
+  const result = await response.json();
+  console.log(result.data);
+
+  createHistoryChart(result.data);
+  
+}
+
+
+function createHistoryChart(data) {
+  const labels = data.map(d => new Date(d.time).toLocaleDateString());
+  const prices = data.map(d => parseFloat(d.priceUsd));
+
+  const ctx = document.getElementById('crypto-chart').getContext('2d');
+
+ 
+  if (window.cryptoChart) {
+    window.cryptoChart.destroy();
+  }
+
+  window.cryptoChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: `${document.getElementById('crypto-input').value} Price (USD)`,
+        data: prices,
+        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderWidth: 1,
+        fill: true
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: true }
+      },
+      scales: {
+        x: { title: { display: true, text: 'Date' } },
+        y: { 
+          title: { display: true, text: 'Price (USD)' },
+          beginAtZero: false
+        }
+      }
+    }
+  });
+}
+
+
+
 async function createUser() {
     await fetch(`/user`, {
         method: 'POST',
@@ -129,5 +194,6 @@ window.onload = async function () {
 
     if (path.includes("function.html")) {
         await loadUserData();
+        await fetchCryptoHistory();
     } 
 };
