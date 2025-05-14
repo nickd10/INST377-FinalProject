@@ -93,49 +93,54 @@ async function createUser() {
 
 
 async function loadUserData() {
-    console.log("Loading user data...");
-    fetch('/users')
-        .then((result) => result.json())
-        
-        .then(resultJson => {
-            console.log(resultJson);
+  console.log("Loading user data...");
+  const usernameInput = document.getElementById('username-input').value.trim();
 
-            const existingTable = document.getElementById('user-table');
-            if (existingTable) {
-                existingTable.remove();
-            }
+  fetch('/users')
+    .then((result) => result.json())
+    .then(resultJson => {
+      console.log(resultJson);
 
-            const table = document.createElement('table');
-            table.setAttribute('id', 'user-table');
+      const existingTable = document.getElementById('user-table');
+      if (existingTable) {
+        existingTable.remove();
+      }
 
-            const tableRow = document.createElement('tr');
+      const table = document.createElement('table');
+      table.setAttribute('id', 'user-table');
 
-            const tableHeadingUserName = document.createElement('th');
-            tableHeadingUserName.innerText = 'Username';
-            tableRow.appendChild(tableHeadingUserName);
+      const tableRow = document.createElement('tr');
 
-            const tableHeadingCrypto = document.createElement('th');
-            tableHeadingCrypto.innerText = 'Crypto Search History';
-            tableRow.appendChild(tableHeadingCrypto);
-            
-            table.appendChild(tableRow);
+      const tableHeadingUserName = document.createElement('th');
+      tableHeadingUserName.innerText = 'Username';
+      tableRow.appendChild(tableHeadingUserName);
 
-            document.body.appendChild(table);
+      const tableHeadingCrypto = document.createElement('th');
+      tableHeadingCrypto.innerText = 'Crypto Search History';
+      tableRow.appendChild(tableHeadingCrypto);
 
-            resultJson.forEach((user) => {
-                const tableRow = document.createElement('tr');
-                const tableDataUserName = document.createElement('td');
-                tableDataUserName.innerText = user.username;
-                tableRow.appendChild(tableDataUserName);
+      table.appendChild(tableRow);
 
-                const tableDataCrypto = document.createElement('td');
-                tableDataCrypto.innerText = user.crypto;
-                tableRow.appendChild(tableDataCrypto);
+      document.body.appendChild(table);
 
-                table.appendChild(tableRow);
-            });
-        });
+      // Filter users by the entered username (case-insensitive)
+      const filteredUsers = resultJson.filter(user => 
+        user.username && user.username.toLowerCase() === usernameInput.toLowerCase()
+      );
 
+      filteredUsers.forEach((user) => {
+        const tableRow = document.createElement('tr');
+        const tableDataUserName = document.createElement('td');
+        tableDataUserName.innerText = user.username;
+        tableRow.appendChild(tableDataUserName);
+
+        const tableDataCrypto = document.createElement('td');
+        tableDataCrypto.innerText = user.crypto;
+        tableRow.appendChild(tableDataCrypto);
+
+        table.appendChild(tableRow);
+      });
+    });
 }
   
   
