@@ -186,9 +186,8 @@ async function loadUserData() {
     const response = await fetch(apiUrl);
     const data = await response.json();
   
-    console.log(data.results); // now logs the array you want
+    console.log(data.results);
   
-    // clear out any old articles
     newsContainer.innerHTML = '';
   
     data.results.forEach((post) => {

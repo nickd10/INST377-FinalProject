@@ -64,10 +64,6 @@ app.post('/user', async (req, res) => {
 });
 
 
-//Log into the account
-
-//update the account with crypto data
-
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
