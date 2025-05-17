@@ -208,7 +208,7 @@ async function loadUserData() {
 window.onload = async function () {
     const path = window.location.pathname;
 
-    if (path.includes("home.html")) {
+    if (path.includes("home.html") || path.includes("/")) {
         await fetchCryptoData();
         await displayNews();
     }
