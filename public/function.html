@@ -4,8 +4,6 @@
         <link rel="stylesheet" href="finalprojectstylesheet.css">
         <script src="finalproject.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-        
     </head>
 
     <body>
@@ -18,20 +16,22 @@
             </ul>
         </nav>
         
-            <h1>Favorite Cryptocurrencies</h1>
+        <h1>Favorite Cryptocurrencies</h1>
 
-            <div id="favorites">
-                <h2>Search for your favorite Crypto's recent performance</h2>
+        <div id="favorites">
+            <h2>Search for your favorite Crypto's recent performance</h2>
+            <form id="favorite-form" onsubmit="event.preventDefault(); fetchCryptoHistory(document.getElementById('crypto-input').value.toLowerCase()), addUserInfo()">
+                <input type="text" id="username-input" placeholder="Same username each time" required style="width: 345px;">
+                <input type="text" id="crypto-input" placeholder="Name of crypto (No Tickers)" required style="width: 345px;">
+                <button type="submit">Add to Favorites</button>
+            </form>
+            <ul id="crypto-list"></ul>
+        </div>
 
-                <form id="favorite-form" onsubmit="event.preventDefault(); fetchCryptoHistory(document.getElementById('crypto-input').value), addUserInfo()">
-                    <input type="text" id="username-input" placeholder="Same username each time" required style="width: 345px;">
-                    <input type="text" id="crypto-input" placeholder="Name of crypto (No Tickers)" required style="width: 345px;">
-                    <button type="submit">Add to Favorites</button>
-                  </form>
+        
+
                   
 
-                
-                <ul id="crypto-list"></ul>
 
                 
           
