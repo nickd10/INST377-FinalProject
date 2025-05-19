@@ -13,7 +13,9 @@ Dependancies and Install: For developers, the will need to install a series of p
 For Supabase, you will need to have a Supabase account set up, which you will then need to obtain your supabase link and key from the specific project you are working on. After defining both of those links as variables in your .env file, you will use them in your index.js file as such: 
 
 const supabaseUrl = process.env.SUPABASE_URL;
+
 const supabaseKey = process.env.SUPABASE_KEY;
+
 const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
 
 CoinCap API: You will need to obtain your own API Key to pull the cryptocurrency data. Link: https://pro.coincap.io/api-docs
