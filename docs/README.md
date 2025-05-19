@@ -16,12 +16,16 @@ Cryptopanic API: You will need to obtain your own API Key to use the crypto news
 Running Application on a Server: To run the server locally, you will need to have the necessary packages installed as detailed in the section above, and also an index.js file. In this file you will need to set up all of the apps requirements which is a series of lines of code that will most likely look like the following:
 
 const express = require('express');
+
 const supabaseClient = require('@supabase/supabase-js');
 const bodyParser = require('body-parser');
+
 const dotenv = require('dotenv');
+
 dotenv.config();
 
 const app = express();
+
 const port = 3000;
 
 app.use(bodyParser.json());
