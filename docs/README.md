@@ -97,18 +97,54 @@ This returns the home.html page when the user first reaches the app through the 
 
 The following two requests do the same thing but to the other two pages available on my site:
 
-app.get('/about', (req, res) => {
+2. app.get('/about', (req, res) => {
     res.sendFile('public/about.html', { root: __dirname });
 });
 
-app.get('/function', (req, res) => {
+3. app.get('/function', (req, res) => {
     res.sendFile('public/function.html', { root: __dirname });
 });
 
 app.get('/users') will return the all of the users listed in the Supabase table I have setup to take in the information from the site. It will take in the username, crypto and then create an id and created_at time stamp. This is intended to be used for pulling the users data based on username and displaying their search history and visualize their favorite cryptos.
+4.  app.get('/users', async (req, res) => {
+    console.log("Fetching users...");
+
+    const { data, error } = await supabase
+        .from('user_crypto_favorites')
+        .select('*');
+
+    if (error) {
+        console.error(error);
+        res.status(500).send('Error fetching users');
+    } else {
+        res.json(data);
+    }
+});
 
 
 
 ## POST
 
 app.post('/users') is used in a POST method to add the users data to the database table so it can be stored and displayed on the site. It will take in the username and crypto from the user and store it.
+
+5. app.post('/user', async (req, res) => {
+    console.log("Adding Data...");
+
+    console.log(req.body);
+    var userName = req.body.username;
+    var cryptoName = req.body.crypto;
+
+    const { data, error } = await supabase
+    .from('user_crypto_favorites')
+    .insert({ username: userName, 
+            crypto: cryptoName })
+    .select();
+
+    if(error) {
+        console.error(error);
+        return res.status(500).send('Error adding user');
+    } else {
+        res.send(data);
+    }
+
+});
