@@ -8,7 +8,8 @@ Target Browsers: Google Chrome (Desktop and Android), Safari, Microsft Edge. Thi
 
 
 # Developer Manual
-## Dependancies and Install: For developers, the will need to install a series of packages to pick up where this project leaves off. Developers will need to install: node, express, nodemon, bodyparser, dotenv, and supabase. To install these, developers will need to run a series of commands in the terminal. When first setting up the environement in the terminal, the user should start with "npm init" before installing the packages. In the init process, you mostly only need to worry about putting your name as the author of the project. The commands will consist of being in the necessary directory and installing each package my using "npm install {package name}". The package names are as listed but will be: node, express, nodemon, bodyparser, dotenv, and  @supabase/supabase-js. Once the server is set up locally (which we will get to), you can start by using the command "npm start". In addition to these server based dependencies, there are a few API dependencies.
+## Dependancies and Install: 
+For developers, the will need to install a series of packages to pick up where this project leaves off. Developers will need to install: node, express, nodemon, bodyparser, dotenv, and supabase. To install these, developers will need to run a series of commands in the terminal. When first setting up the environement in the terminal, the user should start with "npm init" before installing the packages. In the init process, you mostly only need to worry about putting your name as the author of the project. The commands will consist of being in the necessary directory and installing each package my using "npm install {package name}". The package names are as listed but will be: node, express, nodemon, bodyparser, dotenv, and  @supabase/supabase-js. Once the server is set up locally (which we will get to), you can start by using the command "npm start". In addition to these server based dependencies, there are a few API dependencies.
 
 For Supabase, you will need to have a Supabase account set up, which you will then need to obtain your supabase link and key from the specific project you are working on. After defining both of those links as variables in your .env file, you will use them in your index.js file as such: 
 
@@ -22,7 +23,8 @@ CoinCap API: You will need to obtain your own API Key to pull the cryptocurrency
 
 Cryptopanic API: You will need to obtain your own API Key to use the crypto news API. Link: https://cryptopanic.com/developers/api/
 
-## Running Application on a Server: To run the server locally, you will need to have the necessary packages installed as detailed in the section above, and also an index.js file. In this file you will need to set up all of the apps requirements which is a series of lines of code that will most likely look like the following:
+## Running Application on a Server: 
+To run the server locally, you will need to have the necessary packages installed as detailed in the section above, and also an index.js file. In this file you will need to set up all of the apps requirements which is a series of lines of code that will most likely look like the following:
 
 const express = require('express');
 
