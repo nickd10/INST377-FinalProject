@@ -148,3 +148,9 @@ app.post('/users') is used in a POST method to add the users data to the databas
     }
 
 });
+
+# Bugs and Road-Map for the future
+There should be no bugs as of this momement as this project has been reviewed to ensure that it will display as intended on the vercel site. 
+
+## For the Future:
+I think this project could have had some more effort in terms of aesthetics but in a way I think the bare bones is fitting for investors as they care about how their money is performing and not the color of the graph or page they are looking at the performance on. There is definetly more space for images and other fancy things around it. One bit of functionality that I wanted to include but did not get around to was displaying multiple graphs on the functionality based on the users search history so I think that is something that could be added in the future. There is definetly a lot to do with what is already here so I am excited to see where this project goes!
