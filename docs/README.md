@@ -19,6 +19,7 @@ const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
 
 CoinCap API: You will need to obtain your own API Key to pull the cryptocurrency data. Link: https://pro.coincap.io/api-docs
+
 Cryptopanic API: You will need to obtain your own API Key to use the crypto news API. Link: https://cryptopanic.com/developers/api/
 
 Running Application on a Server: To run the server locally, you will need to have the necessary packages installed as detailed in the section above, and also an index.js file. In this file you will need to set up all of the apps requirements which is a series of lines of code that will most likely look like the following:
