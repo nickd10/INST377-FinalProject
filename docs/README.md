@@ -81,3 +81,30 @@ This file will look something like:
     ]
 
 }
+
+Once you have connected your vercel and have it set up, you will have a domain link that you can distribute to others to access your site. This will look something like this: 
+https://inst-377-final-project-mocha.vercel.app/
+(This is my projects link)
+
+# API for Server Application
+## GET
+1. The first GET request endpoint in this project is:
+app.get('/', (req, res) => {
+    res.sendFile('public/home.html', { root: __dirname });
+});
+
+This returns the home.html page when the user first reaches the app through the vercel link.
+
+The following two requests do the same thing but to the other two pages available on my site:
+
+app.get('/about', (req, res) => {
+    res.sendFile('public/about.html', { root: __dirname });
+});
+
+app.get('/function', (req, res) => {
+    res.sendFile('public/function.html', { root: __dirname });
+});
+
+app.get('/users') will return the all of the users listed in the Supabase table I have setup to take in the information from the site. It will take in the username, crypto and then create an id and created_at time stamp.
+
+## POST
