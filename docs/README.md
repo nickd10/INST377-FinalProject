@@ -1,4 +1,5 @@
 # INST377-FinalProject
+Vercel Link: https://inst-377-final-project-mocha.vercel.app/
 
 Title: Crypto Tracker
 Description: This project aims to give users an easy to use full-stack real-time cryptocurrency market data tracking interfrace. This web application gives users access to top coins and currencies recent performances, up to date news feeds, and a personalized tracking feature where the user can manage their individual watchlist/portfolio. Using a database on the backend and front-end libraries, the user is able to keep track of their favorite cryptos and see their most recent performances.
