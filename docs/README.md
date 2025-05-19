@@ -105,6 +105,10 @@ app.get('/function', (req, res) => {
     res.sendFile('public/function.html', { root: __dirname });
 });
 
-app.get('/users') will return the all of the users listed in the Supabase table I have setup to take in the information from the site. It will take in the username, crypto and then create an id and created_at time stamp.
+app.get('/users') will return the all of the users listed in the Supabase table I have setup to take in the information from the site. It will take in the username, crypto and then create an id and created_at time stamp. This is intended to be used for pulling the users data based on username and displaying their search history and visualize their favorite cryptos.
+
+
 
 ## POST
+
+app.post('/users') is used in a POST method to add the users data to the database table so it can be stored and displayed on the site. It will take in the username and crypto from the user and store it.
