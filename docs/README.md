@@ -8,7 +8,7 @@ Target Browsers: Google Chrome (Desktop and Android), Safari, Microsft Edge. Thi
 
 
 # Developer Manual
-Dependancies and Install: For developers, the will need to install a series of packages to pick up where this project leaves off. Developers will need to install: node, express, nodemon, bodyparser, dotenv, and supabase. To install these, developers will need to run a series of commands in the terminal. When first setting up the environement in the terminal, the user should start with "npm init" before installing the packages. In the init process, you mostly only need to worry about putting your name as the author of the project. The commands will consist of being in the necessary directory and installing each package my using "npm install {package name}". The package names are as listed but will be: node, express, nodemon, bodyparser, dotenv, and  @supabase/supabase-js. Once the server is set up locally (which we will get to), you can start by using the command "npm start". In addition to these server based dependencies, there are a few API dependencies.
+## Dependancies and Install: For developers, the will need to install a series of packages to pick up where this project leaves off. Developers will need to install: node, express, nodemon, bodyparser, dotenv, and supabase. To install these, developers will need to run a series of commands in the terminal. When first setting up the environement in the terminal, the user should start with "npm init" before installing the packages. In the init process, you mostly only need to worry about putting your name as the author of the project. The commands will consist of being in the necessary directory and installing each package my using "npm install {package name}". The package names are as listed but will be: node, express, nodemon, bodyparser, dotenv, and  @supabase/supabase-js. Once the server is set up locally (which we will get to), you can start by using the command "npm start". In addition to these server based dependencies, there are a few API dependencies.
 
 For Supabase, you will need to have a Supabase account set up, which you will then need to obtain your supabase link and key from the specific project you are working on. After defining both of those links as variables in your .env file, you will use them in your index.js file as such: 
 
@@ -22,7 +22,7 @@ CoinCap API: You will need to obtain your own API Key to pull the cryptocurrency
 
 Cryptopanic API: You will need to obtain your own API Key to use the crypto news API. Link: https://cryptopanic.com/developers/api/
 
-Running Application on a Server: To run the server locally, you will need to have the necessary packages installed as detailed in the section above, and also an index.js file. In this file you will need to set up all of the apps requirements which is a series of lines of code that will most likely look like the following:
+## Running Application on a Server: To run the server locally, you will need to have the necessary packages installed as detailed in the section above, and also an index.js file. In this file you will need to set up all of the apps requirements which is a series of lines of code that will most likely look like the following:
 
 const express = require('express');
 
@@ -52,3 +52,30 @@ app.get('/', (req, res) => {
     res.sendFile('public/home.html', { root: __dirname });
 });
 
+You will also need a line such as this:
+
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
+});
+
+For real deployment, you will need to connect the Github repository you are working on this with, to an account with Vercel to deploy the project. Link: [https:/](https://vercel.com/)
+
+Once you have your account connected and set up, you will go into the settings tab of your project and then go to Environment Variables for which you will input your Supabase link and key variables from your .env file. Next you will need a vercel.json file to have the routing figured out between the site and your project.
+
+This file will look something like: 
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "./index.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/"
+        }
+    ]
+
+}
