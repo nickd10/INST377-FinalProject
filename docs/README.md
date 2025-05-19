@@ -46,4 +46,9 @@ app.use(express.static(__dirname + '/public'));
 
 These lines of code will ensure that the server is set up and the packages are being used within the app. The line "const port=3000;" specifies which port the server will be running on locally, 3000 should work for most.
 
-If all of your packages are installed correctly,
+If all of your packages are installed correctly, you can run your app locally but going into your browser, or even something like Insomnia, and typing "http://localhost:3000/". How this works with the API end points will be explained further in the following section. For now, to have a even a blank page appear, you need a line that will send an HTML file for the "/" request which would be something like:
+
+app.get('/', (req, res) => {
+    res.sendFile('public/home.html', { root: __dirname });
+});
+
